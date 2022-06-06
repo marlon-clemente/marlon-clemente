@@ -17,7 +17,6 @@ Here are some ideas to get you started:
 -->
 
 <div style="display:inline-block; margin: 12px;">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=marlon-clemente&show_icons=true&theme=dracula&hide=contribs,prs"/>
   <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=marlon-clemente&layout=compact&theme=dracula"/>
 </div>
 
