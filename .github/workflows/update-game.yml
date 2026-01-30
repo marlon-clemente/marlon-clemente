@@ -1,0 +1,27 @@
+name: Update Space Shooter Game
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Roda todo dia à meia-noite
+  workflow_dispatch:  # Permite que você rode manualmente quando quiser
+
+jobs:
+  update-game:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: czl9707/gh-space-shooter@v1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          output-path: 'game.gif'
+          strategy: 'random'
+
+      - name: Commit and Push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add game.gif
+          git commit -m "Update game GIF" || exit 0
+          git push
